@@ -510,7 +510,7 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.views_.addChild( forgotPasswordView  );
   this.views_.addChild( tradingView         );
   this.views_.addChild( algorithmTradingView);
-  this.views_.addChild( offerBookView       );
+  // this.views_.addChild( offerBookView       );
   this.views_.addChild( historyView         );
   this.views_.addChild( depositView         );
   this.views_.addChild( depositRequestsView );
@@ -546,15 +546,15 @@ bitex.app.BlinkTrade.prototype.run = function(host_api) {
   this.router_.addView( '(faq)'                         , faqView             );
   this.router_.addView( '(themes)'                      , themesView          );
   this.router_.addView( '(partners)'                    , partnersView        );
-  this.router_.addView( '(purseio)'                     , purseioView         );
+  // this.router_.addView( '(purseio)'                     , purseioView         );
   this.router_.addView( '(admin)'                       , startView           );
   this.router_.addView( '(set_new_password)'            , setNewPasswordView  );
   this.router_.addView( '(signin)'                      , loginView           );
   this.router_.addView( '(signup)'                      , signUpView          );
   this.router_.addView( '(forgot_password)'             , forgotPasswordView  );
-  this.router_.addView( '(algotrading)'                 , algorithmTradingView);
+  // this.router_.addView( '(algotrading)'                 , algorithmTradingView);
   this.router_.addView( '(trading)'                     , tradingView         );
-  this.router_.addView( '(offerbook)'                   , offerBookView       );
+  // this.router_.addView( '(offerbook)'                   , offerBookView       );
   this.router_.addView( '(history)'                     , historyView         );
   this.router_.addView( '(deposit_requests)'            , depositRequestsView );
   this.router_.addView( '(deposit)'                     , depositView         );
