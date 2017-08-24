@@ -43,8 +43,8 @@
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/Dialog.css" rel="stylesheet">
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/fuelux.css" rel="stylesheet">
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/style.css?v=0a13a73" rel="stylesheet">
-    <script data-cfasync="false" src="https://bitcambio.blinktrade.com/assets/js/bitex_app_blink_trade.compiled.pt_BR.default.js?v=0a13a73" type="text/javascript"></script>
+    <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/style.css?v=ea7a412" rel="stylesheet">
+    <script data-cfasync="false" src="https://bitcambio.blinktrade.com/assets/js/bitex_app_blink_trade.compiled.pt_BR.default.js?v=ea7a412" type="text/javascript"></script>
     <script src="https://bitcambio.blinktrade.com/assets/js/externs/qrcode.min.js"></script>
     
   </head>
@@ -55,8 +55,8 @@
         <div class="container">
 
           
-          <a href="#" class="brand" data-switch-view="offerbook">
-            <img data-switch-view="offerbook" src="https://bitcambio.blinktrade.com/assets/exchange_logos/bitcambio_toolbar_logo.png" style="
+          <a href="#" class="brand" data-switch-view="trading">
+            <img data-switch-view="trading" src="https://bitcambio.blinktrade.com/assets/exchange_logos/bitcambio_toolbar_logo.png" style="
                 height: 30px;
                 margin-top: -10px;
                 margin-bottom: -10px;
@@ -71,7 +71,7 @@
                 <a href="https://bitcambiohelp.zendesk.com/hc/pt-br" target="_blank" rel="noopener noreferrer">Ajuda</a>
               
             </li>
-            <li class="bitex-display-if-logged"><a href="" data-switch-view="offerbook">Negociações</a></li>
+            <li class="bitex-display-if-logged"><a href="" data-switch-view="trading">Negociações</a></li>
             <li><a href="" data-switch-view="market">Mercado</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Login</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Registrar</a></li>
@@ -1253,7 +1253,7 @@ Ou seja, mesmo que um hacker comprometa a segurança da chave da FoxBit, ele tam
               <i data-switch-view="trading" class="icon-random"></i> Comprar ou Vender</a>
           </li>
 
-          <li id="menu-offerbook">
+          <li id="menu-offerbook" style="display: none">
             <a href="" data-switch-view="offerbook">
               <i data-switch-view="offerbook" class="icon-book"></i> Livro de ofertas</a>
           </li>
@@ -1269,12 +1269,12 @@ Ou seja, mesmo que um hacker comprometa a segurança da chave da FoxBit, ele tam
               <i data-switch-view="history" class="icon-list-alt"></i> Histórico de ordens</a>
           </li>
 
-          <li id="menu-algotrading">
+          <li id="menu-algotrading" style="display: none">
             <a href="" data-switch-view="algotrading">
               <i data-switch-view="algotrading" class="icon-cog"></i> Algo Trading</a>
           </li>
 
-          <li id="menu-ledger">
+          <li id="menu-ledger" style="display: none">
             <a href="" data-switch-view="ledger">
               <i data-switch-view="ledger" class="icon-list"></i> Livro contábil</a>
           </li>
@@ -1320,12 +1320,12 @@ Ou seja, mesmo que um hacker comprometa a segurança da chave da FoxBit, ele tam
               <i data-switch-view="line_of_credit" class="icon-retweet"></i> Linha de crédito</a>
           </li>
 
-          <li style="">
+          <li style="" style="display: none">
             <a href="" data-switch-view="faq">
               <i data-switch-view="faq" class="icon-question"></i> Suporte e Sugestões</a>
           </li>
 
-          <li style="" id="menu-api">
+          <li style="" id="menu-api" style="display: none">
             <a href="" data-switch-view="api">
               <i data-switch-view="api" class="icon-globe"></i> API</a>
           </li>
@@ -1412,10 +1412,10 @@ Ou seja, mesmo que um hacker comprometa a segurança da chave da FoxBit, ele tam
           
           <a href="" data-switch-view="admin">admin</a> |
           Latência: <span class="bitex-model" data-model-key="latency">0</span> ms |
-          Versão: 0a13a73 |
+          Versão: ea7a412 |
           
 		      <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
-          | <a href="#themes">Themes</a>
+          <!-- | <a href="#themes">Themes</a> -->
           | <a href="https://github.com/blinktrade/" target="_blank">Proudly 100% open source <span class="bitex-model" data-model-key="JSVersion"></span></a>
           | <a href="http://nytm.org/made-in-nyc/" target="_blank">Made with <span style="color: #d11f0d;font-size: 19px;">♥</span> in NYC</a> 
         </p>
