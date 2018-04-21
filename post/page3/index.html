@@ -43,8 +43,8 @@
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/Dialog.css" rel="stylesheet">
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/fuelux.css" rel="stylesheet">
     <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/default.uni-form.css" rel="stylesheet">
-    <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/style.css?v=e3d85df" rel="stylesheet">
-    <script data-cfasync="false" src="https://bitcambio.blinktrade.com/assets/js/bitex_app_blink_trade.compiled.pt_BR.default.js?v=e3d85df" type="text/javascript"></script>
+    <link href="https://bitcambio.blinktrade.com/assets/themes/default/css/style.css?v=80681a1" rel="stylesheet">
+    <script data-cfasync="false" src="https://bitcambio.blinktrade.com/assets/js/bitex_app_blink_trade.compiled.pt_BR.default.js?v=80681a1" type="text/javascript"></script>
     <script src="https://bitcambio.blinktrade.com/assets/js/externs/qrcode.min.js"></script>
     
   </head>
@@ -72,6 +72,7 @@
               
             </li>
             <li class="bitex-display-if-logged"><a href="" data-switch-view="trading">Negociações</a></li>
+            <li class="bitex-model" data-model-key="IsProTrader" style="display: none" data-model-action="show_element"><a href="" data-switch-view="market">Mercado</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signin">Login</a></li>
             <li class="bitex-hide-if-logged"><a href="" data-switch-view="signup">Registrar</a></li>
             
@@ -192,7 +193,7 @@
           <label class="control-label">Nickname</label>
 
           <div class="controls">
-            <input id="id_signup_username" name="Username" size="30" type="text" placeholder="">
+            <input autocapitalize="off" autocorrect="off" id="id_signup_username" name="Username" size="30" type="text" placeholder="">
           </div>
         </div>
 
@@ -200,7 +201,7 @@
           <label class="control-label">Email</label>
 
           <div class="controls">
-            <input id="id_signup_email" name="Email" size="30" type="email" placeholder="ex.: jose@email.com">
+            <input autocapitalize="off" autocorrect="off" id="id_signup_email" name="Email" size="30" type="email" placeholder="ex.: jose@email.com">
           </div>
         </div>
 
@@ -286,6 +287,23 @@
             <input id="id_password" placeholder="" name="password" type="password">
           </div>
         </div>
+
+        <div class="clearfix" id="id_second_factor_group" style="display: none">
+          <label for="id_password">Segundo passo de autenticação:</label>
+          <div class="input">
+            <input id="id_second_factor"  placeholder="" name="secondfactor" type="text" autocomplete="off">
+          </div>
+        </div>
+
+        <p class="bitex-model" style="display: none" data-model-key="HasToken" data-model-action="show_element">
+          <input type="checkbox" id="id_trusted_device" />
+          <label for="id_trusted_device" style="display: inline-block">Confiar neste dispositivo por 30 dias</label>
+        </p>
+
+        <p>
+          <a href="#" id="id_open_second_factor">Possui segundo passo de autenticação?</a>
+        </p>
+        
         <p><a href="#" data-switch-view="forgot_password">Esqueceu a sua senha?</a></p>
 
         <div class="actions">
@@ -457,7 +475,7 @@
                 <a href="#TabDepositRequests" data-toggle="tab">Pedidos de depósitos</a>
               </li>
               <li>
-                <a href="#TabWithdrawRequests" data-toggle="tab">Pedidos de saques</a>
+                <a href="#TabWithdrawRequests" data-toggle="tab">Pedidos de retiradas</a>
               </li>
               <li>
                 <a href="#TabWithdrawMethods" data-toggle="tab">Withdraw methods</a>
@@ -474,7 +492,7 @@
                 <div id="admin_deposit_requests"></div>
               </div>
               <div class="tab-pane fade" id="TabWithdrawRequests">
-                <h2 class="bitex-view-title">Pedidos de saques</h2>
+                <h2 class="bitex-view-title">Pedidos de retiradas</h2>
 
                 <div id="admin_withdraw_requests"></div>
               </div>
@@ -524,7 +542,7 @@
 
       <div id="withdraw" class="bitex-view">
         <div class="section-title title-float">
-          <h3 class="bitex-view-title">Saques</h3>
+          <h3 class="bitex-view-title">Retiradas</h3>
         </div>
         <div class="content bitex-view-content content-padding">
           <div id="id_withdraw_button_group" class="row-fluid text-right" style="margin-bottom:20px" ></div>
@@ -536,7 +554,7 @@
 
       <div id="withdraw_requests" class="bitex-view">
         <div class="section-title">
-          <h3 class="bitex-view-title">Pedidos de saques</h3>
+          <h3 class="bitex-view-title">Pedidos de retiradas</h3>
         </div>
         <div class="content bitex-view-content">
           <div id="id_withdraw_request_list"></div>
@@ -789,7 +807,7 @@
 
           <li class="bitex-display-if-broker" id="menu-withdraw_requests">
             <a href="" data-switch-view="withdraw_requests">
-              <i data-switch-view="withdraw_requests" class="icon-minus"></i> Saques ( clientes )</a>
+              <i data-switch-view="withdraw_requests" class="icon-minus"></i> Retiradas ( clientes )</a>
           </li>
 
           <li id="menu-deposit" class="bitex-display-if-non-broker">
@@ -800,6 +818,11 @@
           <li id="menu-withdraw" class="bitex-display-if-non-broker">
             <a href="" data-switch-view="withdraw">
               <i data-switch-view="withdraw" class="icon-minus"></i> Retiradas</a>
+          </li>
+
+          <li id="menu-services" class="bitex-model bitex-display-if-non-broker"  style="display: none" data-model-key="HasServices" data-model-action="show_element">
+            <a href="" data-switch-view="services">
+              <i data-switch-view="services" class="icon-minus"></i> Serviços</a>
           </li>
 
           <li class="bitex-display-if-non-broker bitex-model" style="display: none" id="card_menu_id"  data-model-key="HasCardFeature" data-model-action="show_element" id="menu-card">
@@ -871,12 +894,6 @@
                     <h3>Simple Theme</h3>
                 </a>
             </div>
-            <div class="span4">
-                <a href="https://bitcambio.blinktrade.com/themes/whitedev/">
-                    <img src="https://bitcambio.blinktrade.com/assets/exchange_logos/thumb-themes/bitcambio-whitedev-thumb.jpg" alt="Whitedev Theme">
-                    <h3>Whitedev</h3>
-                </a>
-            </div>
         </div>
     </div>
   </div>
@@ -889,10 +906,10 @@
         <p>
           
           Latência: <span class="bitex-model" data-model-key="latency">0</span> ms |
-          Versão: e3d85df |
+          Versão: 80681a1 |
           
 		      <a href="http://blinktrade.com/" target="_blank">© 2014 BlinkTrade Inc</a>
-          <!-- | <a href="#themes">Themes</a> -->
+          | <a href="#themes">Themes</a>
           | <a href="https://github.com/blinktrade/" target="_blank">Follow us on GitHub<span class="bitex-model" data-model-key="JSVersion"></span></a>
         </p>
       </div>
@@ -906,11 +923,12 @@
         var country_code = "BR";
         var blinktrade_api = "bitcambio_api.blinktrade.com";
         var symbol = "BTCBRL";
+        var required_level_to_be_a_pro_trader = 4;
 
         var remittance_box = { 'BRL':[ ['Bitcambio',          'BRL', 'BLINK_BTCBRL_BEST_BID / 100000000', 'BLINK_BTCBRL_BEST_ASK / 100000000'  ], ['MercadoBTC',         'BRL', '(MBT_BTCBRL_BEST_BID * 0.9731 / 100000000) - 2.9', '(MBT_BTCBRL_BEST_ASK * 1.0269 / 100000000) + 2.9'  ], ['Dólar Bitcoin',      'BRL', 'BLINK_BTCBRL_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID'  ], ], 'USD':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['KrakenUSD',          'USD', 'KRAKEN_BTCUSD_BEST_BID / 100000000', 'KRAKEN_BTCUSD_BEST_ASK / 100000000'  ], ['itBitUSD',           'USD', 'ITBIT_BTCUSD_BEST_BID / 100000000', 'ITBIT_BTCUSD_BEST_ASK / 100000000'  ] ], 'VEF':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCVEF_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] , ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ], ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ], 'CLP':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] , ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] , ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ], 'VND':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> VND',  'VND', 'BLINK_BTCVND_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCVND_BEST_BID' ] ], 'PKR':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] ] };
 
         _app = new BlinkTradeApp(broker_id, remittance_box,  country_code, symbol);
-        _app.run(blinktrade_api);
+        _app.run(blinktrade_api, required_level_to_be_a_pro_trader);
       })();
     </script>
     
@@ -939,6 +957,8 @@
 
     
       <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="bitcambiohelp.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();/*]]>*/</script>
+    
+
     
 
   </body>

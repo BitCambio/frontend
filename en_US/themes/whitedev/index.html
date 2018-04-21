@@ -4,7 +4,7 @@
 <head>
   
   
-  <title> Bitcambio - Casa de Câmbio de Bitcoins </title>
+  <title> Bitcambio - Bitcoin exchange house </title>
 
   <meta charset="utf-8">
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -14,10 +14,10 @@
   
   
 
-  <meta name="description" content="Casa de Câmbio de Bitcoin">
+  <meta name="description" content="Bitcambio allows you to securily buy and sell Bitcoins in Brazil.">
   <meta name="keywords" content="bitcoin, comprar bitcoin, btc,bitcambio,cambio,vender bitcoin, bitcoin brasil">
-  <meta property="og:title" content="Bitcambio - Casa de Câmbio de Bitcoins">
-  <meta property="og:description" content="Casa de Câmbio de Bitcoin">
+  <meta property="og:title" content="Bitcambio - Bitcoin exchange house">
+  <meta property="og:description" content="Bitcambio allows you to securily buy and sell Bitcoins in Brazil.">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -46,7 +46,7 @@
   <!--Custom CSS -->
   <link href="https://bitcambio.blinktrade.com/en_US/assets/themes/whitedev/css/main.bitcambio.css" rel="stylesheet">
 
-  <script data-cfasync="false" src="https://bitcambio.blinktrade.com/en_US/assets/js/bitex_app_blink_trade.compiled.en_US.whitedev.js?v=e3d85df" type="text/javascript"></script>
+  <script data-cfasync="false" src="https://bitcambio.blinktrade.com/en_US/assets/js/bitex_app_blink_trade.compiled.en_US.whitedev.js?v=80681a1" type="text/javascript"></script>
   <script src="https://bitcambio.blinktrade.com/en_US/assets/js/externs/qrcode.min.js"></script>
 </head>
 <body class=" ws-not-connected bitex-not-logged active-view-start ">
@@ -360,7 +360,7 @@
                     <img src="/en_US/assets/exchange_logos/bitcambio_landing_page_logo.png" style="max-width:60%;">
                     <h1 class="ls-title-intro">
                         
-                        Compra e Venda de Bitcoins Direta
+                        Buy and sell bitcoin in Brazil
                     </h1>
                 <form action="" class="form-inline">
                     <div class="row">
@@ -1332,7 +1332,7 @@ Further more, all the safety measures of the hot wallet are run by blockchain.in
                       <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
                     </div>
                     <div class="col-md-1 ls-footer-item">
-                      <a href="#">Version: e3d85df</a>
+                      <a href="#">Version: 80681a1</a>
                     </div>
                     
                     <div class="col-md-2 ls-footer-item">
@@ -1367,7 +1367,7 @@ Further more, all the safety measures of the hot wallet are run by blockchain.in
                       <a href="#">Latency: <span class="bitex-model" data-model-key="latency">0</span> ms</a>
                     </div>
                     <div class="col-md-1 ls-footer-item">
-                      <a href="#">Version: e3d85df</a>
+                      <a href="#">Version: 80681a1</a>
                     </div>
                     
                     <div class="col-md-2 ls-footer-item">
@@ -1406,11 +1406,12 @@ Further more, all the safety measures of the hot wallet are run by blockchain.in
         var country_code = "BR";
         var blinktrade_api = "bitcambio_api.blinktrade.com";
         var symbol = "BTCBRL";
+        var required_level_to_be_a_pro_trader = 4;
 
         var remittance_box = { 'BRL':[ ['Bitcambio',          'BRL', 'BLINK_BTCBRL_BEST_BID / 100000000', 'BLINK_BTCBRL_BEST_ASK / 100000000'  ], ['MercadoBTC',         'BRL', '(MBT_BTCBRL_BEST_BID * 0.9731 / 100000000) - 2.9', '(MBT_BTCBRL_BEST_ASK * 1.0269 / 100000000) + 2.9'  ], ['Dólar Bitcoin',      'BRL', 'BLINK_BTCBRL_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCBRL_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID'  ], ], 'USD':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['KrakenUSD',          'USD', 'KRAKEN_BTCUSD_BEST_BID / 100000000', 'KRAKEN_BTCUSD_BEST_ASK / 100000000'  ], ['itBitUSD',           'USD', 'ITBIT_BTCUSD_BEST_BID / 100000000', 'ITBIT_BTCUSD_BEST_ASK / 100000000'  ] ], 'VEF':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCVEF_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] , ['BRL -> BTC -> VEF',  'VEF', 'BLINK_BTCVEF_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCVEF_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ], ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ], 'CLP':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCCLP_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] , ['BRL -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCBRL_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCBRL_BEST_BID' ] , ['VEF -> BTC -> CLP',  'CLP', 'BLINK_BTCCLP_BEST_BID /  BLINK_BTCVEF_BEST_ASK',    'BLINK_BTCCLP_BEST_ASK /  BLINK_BTCVEF_BEST_BID' ] ], 'VND':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> VND',  'VND', 'BLINK_BTCVND_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITFINEX_BTCVND_BEST_BID' ] ], 'PKR':[ ['BitStampUSD',        'USD', 'BITSTAMP_BTCUSD_BEST_BID / 100000000', 'BITSTAMP_BTCUSD_BEST_ASK / 100000000'  ], ['USD -> BTC -> PKR',  'PKR', 'BLINK_BTCPKR_BEST_BID /  BITSTAMP_BTCUSD_BEST_ASK', 'BLINK_BTCPKR_BEST_ASK /  BITSTAMP_BTCUSD_BEST_BID' ] ] };
 
         _app = new BlinkTradeApp(broker_id, remittance_box,  country_code, symbol);
-        _app.run(blinktrade_api);
+        _app.run(blinktrade_api, required_level_to_be_a_pro_trader);
       })();
     </script>
     
